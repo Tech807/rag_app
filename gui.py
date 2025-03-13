@@ -1,11 +1,13 @@
+# filepath: d:\temp\app\gui.py
 import streamlit as st
 from PyPDF2 import PdfReader
 from openai import OpenAI
+import os
 
 # Initialize OpenAI client
 client = OpenAI(
     base_url="https://openrouter.ai/api/v1",
-    api_key="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",
+    api_key=os.getenv('OPENAI_API_KEY'),  # Use environment variable
 )
 
 def extract_text_from_pdf(pdf_file):
